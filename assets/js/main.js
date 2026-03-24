@@ -1,13 +1,37 @@
+const themeQuery = window.matchMedia("(prefers-color-scheme: light)");
+const getIsLightTheme = () => themeQuery.matches;
+
+const applyThemeLogos = () => {
+  const brandLogoSrc = getIsLightTheme() ? "img/modeclair.png" : "img/logo-header.png";
+  const preloaderLogoSrc = getIsLightTheme() ? "img/modeclair.png" : "img/Image.png";
+  const faviconSrc = getIsLightTheme() ? "img/modeclair.png" : "img/Image.png";
+
+  document.querySelectorAll(".brand-logo").forEach((logo) => {
+    logo.src = brandLogoSrc;
+  });
+
+  const preloaderLogo = document.querySelector(".preloader-logo-raw");
+  if (preloaderLogo) {
+    preloaderLogo.src = preloaderLogoSrc;
+  }
+
+  const favicon = document.querySelector('link[rel="icon"]');
+  if (favicon) {
+    favicon.href = faviconSrc;
+  }
+};
+
 const setupPreloader = () => {
   if (!document.body) return;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const preloaderLogoSrc = getIsLightTheme() ? "img/modeclair.png" : "img/Image.png";
   const preloader = document.createElement("div");
   preloader.className = "site-preloader";
   preloader.setAttribute("aria-hidden", "true");
   preloader.innerHTML = `
     <div class="preloader-stage">
-      <img class="preloader-logo-raw" src="img/Image.png" alt="" />
+      <img class="preloader-logo-raw" src="${preloaderLogoSrc}" alt="" />
     </div>
   `;
 
@@ -41,6 +65,13 @@ const setupPreloader = () => {
 };
 
 setupPreloader();
+applyThemeLogos();
+
+if (typeof themeQuery.addEventListener === "function") {
+  themeQuery.addEventListener("change", applyThemeLogos);
+} else if (typeof themeQuery.addListener === "function") {
+  themeQuery.addListener(applyThemeLogos);
+}
 
 const header = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
