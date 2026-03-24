@@ -6,15 +6,8 @@ const setupPreloader = () => {
   preloader.className = "site-preloader";
   preloader.setAttribute("aria-hidden", "true");
   preloader.innerHTML = `
-    <div class="preloader-core">
-      <div class="preloader-orb">
-        <span class="preloader-ring ring-a"></span>
-        <span class="preloader-ring ring-b"></span>
-        <span class="preloader-ring ring-c"></span>
-        <img class="preloader-logo" src="img/Image.png" alt="" />
-      </div>
-      <p class="preloader-label">ODS Group</p>
-      <div class="preloader-bar"><span></span></div>
+    <div class="preloader-stage">
+      <img class="preloader-logo-raw" src="img/Image.png" alt="" />
     </div>
   `;
 
