@@ -28,6 +28,12 @@
 
 html {
   scroll-behavior: smooth;
+  background:
+    radial-gradient(circle at 10% -10%, rgba(72, 118, 32, 0.35), transparent 46%),
+    radial-gradient(circle at 85% 0%, rgba(241, 213, 61, 0.18), transparent 40%),
+    linear-gradient(145deg, #030903 0%, #020402 45%, #041007 100%);
+  background-color: #020402;
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -40,8 +46,9 @@ body {
     linear-gradient(145deg, #030903 0%, #020402 45%, #041007 100%);
   color: var(--white);
   line-height: 1.65;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 body::before {
