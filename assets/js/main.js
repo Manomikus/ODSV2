@@ -1,0 +1,77 @@
+const header = document.querySelector(".site-header");
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+const pageId = document.body.dataset.page || "";
+
+if (header) {
+  const onScroll = () => {
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!expanded));
+    navLinks.classList.toggle("open");
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+if (pageId) {
+  document.querySelectorAll(".nav-link[data-page]").forEach((link) => {
+    if (link.dataset.page === pageId) {
+      link.classList.add("active");
+    }
+  });
+}
+
+const revealNodes = document.querySelectorAll(".reveal");
+if (revealNodes.length > 0 && "IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  revealNodes.forEach((node) => observer.observe(node));
+} else {
+  revealNodes.forEach((node) => node.classList.add("is-visible"));
+}
+
+const form = document.querySelector("#contact-form");
+const status = document.querySelector("#form-status");
+
+if (form && status) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const fullname = String(formData.get("fullname") || "").trim();
+
+    status.textContent = fullname
+      ? `Merci ${fullname}, votre demande a été préparée. Nous revenons vers vous rapidement.`
+      : "Merci, votre demande a été préparée. Nous revenons vers vous rapidement.";
+
+    form.reset();
+  });
+}

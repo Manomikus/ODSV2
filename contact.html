@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact & Devis | ODS Group</title>
+    <meta
+      name="description"
+      content="Contactez ODS Group pour un devis : événementiel, chorégraphie artistique, mise à disposition de danseurs, cinéma et scènes d'action."
+    />
+    <link rel="icon" type="image/png" href="img/Image.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body data-page="contact">
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="index.html" aria-label="Accueil ODS Group">
+          <img class="brand-logo" src="img/Image.png" alt="Logo ODS Group" />
+          <div class="brand-text">
+            <strong>ODS Group</strong>
+            <span>Chorégraphie · Danse · Spectacles</span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Ouvrir le menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+        <nav class="nav-links" aria-label="Navigation principale">
+          <a class="nav-link" data-page="index" href="index.html">Accueil</a>
+          <a class="nav-link" data-page="about" href="a-propos.html">À propos</a>
+          <a class="nav-link" data-page="services" href="services.html">Services</a>
+          <a class="nav-link" data-page="portfolio" href="portfolio.html">Réalisations</a>
+          <a class="nav-link" data-page="team" href="equipe.html">Danseurs</a>
+          <a class="nav-link" data-page="media" href="medias.html">Médias</a>
+          <a class="nav-link" data-page="contact" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container reveal">
+          <p class="kicker">Contact & Devis</p>
+          <h1>Parlons de votre prochain projet</h1>
+          <p>
+            Décrivez votre besoin et recevez une proposition ODS Group adaptée à votre événement, votre spectacle ou
+            votre production audiovisuelle.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="form-title">
+        <div class="container contact-grid">
+          <article class="panel reveal">
+            <p class="kicker">Demande de devis</p>
+            <h2 class="section-title" id="form-title">Formulaire de contact</h2>
+            <p style="margin-top: 0.8rem">
+              Réponse rapide avec proposition personnalisée selon votre budget, votre délai et la nature de la
+              prestation.
+            </p>
+
+            <form id="contact-form" novalidate>
+              <div>
+                <label for="fullname">Nom complet</label>
+                <input id="fullname" name="fullname" type="text" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="company">Entreprise (optionnel)</label>
+                <input id="company" name="company" type="text" autocomplete="organization" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div>
+                <label for="phone">Téléphone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" />
+              </div>
+              <div>
+                <label for="service">Service recherché</label>
+                <select id="service" name="service" required>
+                  <option value="">Sélectionnez un service</option>
+                  <option value="event">Événementiel</option>
+                  <option value="choreo">Chorégraphie artistique</option>
+                  <option value="cinema">Cinéma & scènes d'action</option>
+                  <option value="dancers">Mise à disposition de danseurs</option>
+                  <option value="other">Autre besoin</option>
+                </select>
+              </div>
+              <div>
+                <label for="details">Détails du projet</label>
+                <textarea
+                  id="details"
+                  name="details"
+                  placeholder="Date, lieu, type d'événement, objectif, nombre de participants..."
+                  required
+                ></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+              <p class="form-status" id="form-status" aria-live="polite"></p>
+            </form>
+          </article>
+
+          <aside class="panel contact-card reveal">
+            <p class="kicker">Coordonnées</p>
+            <h3>ODS Group</h3>
+            <ul class="contact-list">
+              <li><span>Email</span><a href="mailto:contact@ods-group.com">contact@ods-group.com</a></li>
+              <li><span>Téléphone</span><a href="tel:+2250102030405">+225 01 02 03 04 05</a></li>
+              <li><span>Disponibilité</span><p>Du lundi au samedi · 09h00 à 19h00</p></li>
+              <li><span>Zone</span><p>Interventions nationales et internationales</p></li>
+            </ul>
+
+            <div class="social-row">
+              <a href="#" aria-label="Instagram ODS Group">Instagram</a>
+              <a href="#" aria-label="Facebook ODS Group">Facebook</a>
+              <a href="#" aria-label="YouTube ODS Group">YouTube</a>
+              <a href="#" aria-label="LinkedIn ODS Group">LinkedIn</a>
+            </div>
+
+            <div class="banner" style="margin-top: 1.2rem">
+              <h3>Brief rapide en 3 points</h3>
+              <ul class="list">
+                <li>Type de prestation recherchée</li>
+                <li>Date / lieu / format de votre projet</li>
+                <li>Objectif principal (image, engagement, show, cinéma)</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section cta-section">
+        <div class="container cta-wrap reveal">
+          <h2>Besoin d'une réponse immédiate ? Écrivez-nous dès maintenant.</h2>
+          <a class="btn btn-primary" href="mailto:contact@ods-group.com">Envoyer un email</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-shell">
+        <small>© 2026 ODS Group · Chorégraphie · Danse · Spectacles · Tous droits réservés.</small>
+        <nav class="footer-nav" aria-label="Liens secondaires">
+          <a href="a-propos.html">À propos</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
