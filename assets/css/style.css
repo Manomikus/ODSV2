@@ -154,7 +154,7 @@ h4 {
 }
 
 .brand-logo {
-  height: 76px;
+  height: 68px;
   width: auto;
   filter: drop-shadow(0 0 12px rgba(163, 239, 0, 0.4));
 }
@@ -1124,22 +1124,24 @@ textarea {
 
 @media (max-width: 920px) {
   :root {
-    --header-height: 82px;
+    --header-height: 86px;
   }
 
   .nav-shell {
-    height: auto;
-    min-height: var(--header-height);
-    padding-block: 0.5rem;
+    height: var(--header-height);
+    min-height: 0;
+    padding-block: 0;
     gap: 1rem;
   }
 
   .brand {
+    height: 100%;
+    align-items: center;
     gap: 0.6rem;
   }
 
   .brand-logo {
-    height: 52px;
+    height: 48px;
   }
 
   .brand-text {
@@ -1155,18 +1157,25 @@ textarea {
     position: fixed;
     inset: var(--header-height) 0 auto 0;
     background: rgba(2, 8, 3, 0.97);
+    border-top: 1px solid rgba(163, 239, 0, 0.2);
     border-bottom: 1px solid rgba(163, 239, 0, 0.2);
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    transform: translateY(-115%);
-    transition: transform 0.28s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: transform 0.24s ease, opacity 0.24s ease, visibility 0.24s ease;
     padding: 0.7rem 1rem 1rem;
     z-index: 85;
   }
 
   .nav-links.open {
     transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .nav-link {
