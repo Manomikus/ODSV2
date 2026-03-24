@@ -19,7 +19,7 @@
   --max-width: 1180px;
   --radius-card: 18px;
   --radius-button: 999px;
-  --header-height: 82px;
+  --header-height: 104px;
 }
 
 * {
@@ -151,7 +151,7 @@ h4 {
 }
 
 .brand-logo {
-  height: 58px;
+  height: 76px;
   width: auto;
   filter: drop-shadow(0 0 12px rgba(163, 239, 0, 0.4));
 }
@@ -1101,6 +1101,14 @@ textarea {
 }
 
 @media (max-width: 920px) {
+  :root {
+    --header-height: 90px;
+  }
+
+  .brand-logo {
+    height: 64px;
+  }
+
   .menu-toggle {
     display: grid;
     place-items: center;
