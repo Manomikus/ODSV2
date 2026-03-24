@@ -1124,11 +1124,26 @@ textarea {
 
 @media (max-width: 920px) {
   :root {
-    --header-height: 90px;
+    --header-height: 82px;
+  }
+
+  .nav-shell {
+    height: auto;
+    min-height: var(--header-height);
+    padding-block: 0.5rem;
+    gap: 1rem;
+  }
+
+  .brand {
+    gap: 0.6rem;
   }
 
   .brand-logo {
-    height: 64px;
+    height: 52px;
+  }
+
+  .brand-text {
+    display: none;
   }
 
   .menu-toggle {
