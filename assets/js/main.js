@@ -1,3 +1,54 @@
+const setupPreloader = () => {
+  if (!document.body) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const preloader = document.createElement("div");
+  preloader.className = "site-preloader";
+  preloader.setAttribute("aria-hidden", "true");
+  preloader.innerHTML = `
+    <div class="preloader-core">
+      <div class="preloader-orb">
+        <span class="preloader-ring ring-a"></span>
+        <span class="preloader-ring ring-b"></span>
+        <span class="preloader-ring ring-c"></span>
+        <img class="preloader-logo" src="img/Image.png" alt="" />
+      </div>
+      <p class="preloader-label">ODS Group</p>
+      <div class="preloader-bar"><span></span></div>
+    </div>
+  `;
+
+  document.body.prepend(preloader);
+  document.body.classList.add("is-loading");
+
+  const minVisibleDuration = prefersReducedMotion ? 220 : 1050;
+  const startedAt = performance.now();
+  let dismissed = false;
+
+  const dismissPreloader = () => {
+    if (dismissed) return;
+    dismissed = true;
+
+    const elapsed = performance.now() - startedAt;
+    const delay = Math.max(0, minVisibleDuration - elapsed);
+
+    window.setTimeout(() => {
+      preloader.classList.add("is-exit");
+      document.body.classList.remove("is-loading");
+      window.setTimeout(() => preloader.remove(), prefersReducedMotion ? 80 : 700);
+    }, delay);
+  };
+
+  if (document.readyState === "complete") {
+    requestAnimationFrame(dismissPreloader);
+  } else {
+    window.addEventListener("load", dismissPreloader, { once: true });
+    window.setTimeout(dismissPreloader, 5000);
+  }
+};
+
+setupPreloader();
+
 const header = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
